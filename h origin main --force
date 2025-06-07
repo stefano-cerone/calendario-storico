@@ -1,0 +1,23 @@
+si [33mcommit a8b402fea1280150106bd840f4fb18c50b9cf71e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: stefano-cerone <stefanocerone5@gmail.com>
+Date:   Sat Jun 7 15:23:03 2025 +0200
+
+    Primo commit del progetto Calendario Storico
+
+ .gitignore                   |  18 [32m+++[m
+ eventi.json                  |  20 [32m++++[m
+ google-credentials.json.json |  13 [32m++[m
+ google_utils.py              |  35 [32m++++++[m
+ proposte.json                | 101 [32m++++++++++++++++[m
+ requirements.txt             |   6 [32m+[m
+ server.py                    |  92 [32m++++++++++++++[m
+ static/modal.css             |  38 [32m++++++[m
+ static/modal.js              |  38 [32m++++++[m
+ static/script.js             | 109 [32m+++++++++++++++++[m
+ static/script_oggi.js        |  85 [32m+++++++++++++[m
+ static/style.css             | 278 [32m+++++++++++++++++++++++++++++++++++++++++++[m
+ templates/grazie.html        |  56 [32m+++++++++[m
+ templates/index.html         |  77 [32m++++++++++++[m
+ templates/oggi.html          |  49 [32m++++++++[m
+ templates/proponi.html       | 164 [32m+++++++++++++++++++++++++[m
+ 16 files changed, 1179 insertions(+)

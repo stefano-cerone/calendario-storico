@@ -2,10 +2,36 @@ from flask import Flask, request, jsonify, render_template, render_template_stri
 import json
 from flask import send_from_directory
 from google_utils import scrivi_su_google_sheet
+from google_utils import scrivi_evento_ufficiale, leggi_eventi_ufficiali
+from functools import wraps
+from dotenv import load_dotenv
+from flask import Response
 
 from flask_cors import CORS
 import os
 from datetime import datetime
+
+def check_auth(username, password):
+    return username == os.getenv("ADMIN_USERNAME") and password == os.getenv("ADMIN_PASSWORD")
+
+def authenticate():
+    return Response(
+        "Autenticazione richiesta", 401,
+        {"WWW-Authenticate": 'Basic realm="Login richiesto"'}
+    )
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
+
+
+load_dotenv()
+
 
 app = Flask(__name__)
 CORS(app)
@@ -87,6 +113,50 @@ def proponi_evento():
         print("❌ Errore durante salvataggio su Google Sheets:", e)
 
     return render_template("grazie.html")
+
+
+@app.route('/admin')
+@requires_auth
+def pagina_admin():
+    return render_template("admin.html")
+
+@app.route('/api/admin/aggiungi', methods=['POST'])
+@requires_auth
+def aggiungi_evento_ufficiale():
+    evento = {
+        "giorno": int(request.form["giorno"]),
+        "mese": int(request.form["mese"]),
+        "anno": int(request.form["anno"]),
+        "titolo": request.form["titolo"],
+        "descrizione": request.form["descrizione"],
+        "link": request.form.get("link", ""),
+        "immagine_url": request.form.get("immagine_url", "")
+    }
+
+    try:
+        SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
+        RANGE = "Foglio1!A1"
+        CHIAVE_JSON = "google-credentials.json"
+        scrivi_evento_ufficiale(evento, SHEET_ID, RANGE, CHIAVE_JSON)
+        print("✅ Evento ufficiale salvato su Google Sheets")
+    except Exception as e:
+        print("❌ Errore salvataggio evento ufficiale:", e)
+        return "Errore salvataggio", 500
+
+    return redirect("/admin")
+
+@app.route('/eventi.json')
+def eventi_ufficiali_json():
+    try:
+        SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
+        RANGE = "Foglio1!A1:G"
+        CHIAVE_JSON = "google-credentials.json"
+        eventi = leggi_eventi_ufficiali(SHEET_ID, RANGE, CHIAVE_JSON)
+        return jsonify(eventi)
+    except Exception as e:
+        print("❌ Errore lettura eventi:", e)
+        return jsonify([]), 500
+
 
 
 

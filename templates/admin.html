@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Aggiungi Evento</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #007acc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #005ea6;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aggiungi Evento Storico</h1>
+    <form method="POST" action="/api/admin/aggiungi">
+        <label for="giorno">Giorno</label>
+        <input type="number" name="giorno" id="giorno" required min="1" max="31">
+
+        <label for="mese">Mese</label>
+        <input type="number" name="mese" id="mese" required min="1" max="12">
+
+        <label for="anno">Anno</label>
+        <input type="number" name="anno" id="anno" required>
+
+        <label for="titolo">Titolo</label>
+        <input type="text" name="titolo" id="titolo" required>
+
+        <label for="descrizione">Descrizione</label>
+        <textarea name="descrizione" id="descrizione" rows="4" required></textarea>
+
+        <label for="link">Link (opzionale)</label>
+        <input type="url" name="link" id="link">
+
+        <label for="immagine_url">URL immagine (opzionale)</label>
+        <input type="url" name="immagine_url" id="immagine_url">
+
+        <button type="submit">Salva evento</button>
+    </form>
+</body>
+</html>
