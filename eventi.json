@@ -1,0 +1,20 @@
+[
+  {
+    "giorno": 6,
+    "mese": 6,
+    "anno": 1944,
+    "titolo": "Sbarco in Normandia",
+    "descrizione": "Le forze alleate sbarcano in Francia, avviando la liberazione dell'Europa occidentale.",
+    "link": "https://it.wikipedia.org/wiki/Sbarco_in_Normandia",
+    "immagine_url": "https://www.meteo.expert/wp-content/uploads/2018/05/d-day-1024x576.jpg"
+  },
+    {
+    "giorno": 7,
+    "mese": 6,
+    "anno": 1944,
+    "titolo": "OTTO SKORZENY",
+    "descrizione": "Le forze alleate sbarcano in Francia, avviando la liberazione dell'Europa occidentale.",
+    "link": "https://it.wikipedia.org/wiki/Sbarco_in_Normandia",
+    "immagine_url": "https://www.meteo.expert/wp-content/uploads/2018/05/d-day-1024x576.jpg"
+  }
+]

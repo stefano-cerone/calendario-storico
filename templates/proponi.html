@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+    <meta charset="UTF-8">
+
+
+  <title>Proponi un evento</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #004b99;
+    }
+  </style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Proponi un evento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f2f2f2;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #0077cc;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Proponi un evento storico</h1>
+
+    <form action="/api/proponi" method="POST">
+
+
+    <label for="titolo">Titolo evento</label>
+    <input type="text" id="titolo" name="titolo" required>
+
+    <label for="descrizione">Descrizione breve</label>
+    <textarea id="descrizione" name="descrizione" rows="4" required></textarea>
+
+    <label for="anno">Anno</label>
+    <input type="number" id="anno" name="anno" required>
+
+    <label for="giorno">Giorno</label>
+    <input type="number" id="giorno" name="giorno" min="1" max="31" required>
+
+    <label for="mese">Mese</label>
+    <input type="number" id="mese" name="mese" min="1" max="12" required>
+
+    <label for="link">Link a Wikipedia (opzionale)</label>
+    <input type="url" id="link" name="link">
+
+    <label for="immagine_url">URL Immagine (opzionale)</label>
+    <input type="url" id="immagine_url" name="immagine_url">
+
+    <button type="submit">Invia Proposta</button>
+  </form>
+
+</body>
+</html>
+
+
+
+  </form>
+</body>
+</html>

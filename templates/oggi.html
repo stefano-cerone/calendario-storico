@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Cosa succedeva oggi</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/modal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <h1>📅 Cosa succedeva oggi</h1>
+
+  <div class="bottoni-home">
+    <a href="/index.html"><button>Scegli un'altra data</button></a>
+    <a href="/oggi.html"><button>Torna ad oggi</button></a>
+  </div>
+
+  <div class="filtro-toggle">
+    <button onclick="toggleFiltroAnno()">🎛️ Filtra per anno</button>
+    <div id="box-filtro-anno" style="display: none; margin-top: 10px;">
+      <input type="number" id="anno-min" placeholder="Dopo l'anno..." />
+      <input type="number" id="anno-max" placeholder="Prima dell'anno..." />
+      <button onclick="applicaFiltro()">Applica filtro</button>
+    </div>
+  </div>
+
+  <div id="risultati">
+    <p>Caricamento eventi in corso...</p>
+  </div>
+
+  <div id="popup" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <span class="modal-close" onclick="chiudiPopup()">×</span>
+    <div id="popup-contenuto"></div>
+  </div>
+</div>
+
+
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="proponi.html">
+      <button>✍️ Proponi Evento</button>
+    </a>
+  </div>
+
+  <script src="/static/script_oggi.js"></script>
+  <script src="/static/modal.js"></script>
+</body>
+</html>

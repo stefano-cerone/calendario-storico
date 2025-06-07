@@ -1,0 +1,18 @@
+# 🔐 Chiavi e credenziali private
+google-credentials.json
+.env
+
+# 🧪 Ambienti virtuali
+.venv/
+
+# 🗑️ Cache e file temporanei Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 🧠 File editor (PyCharm, VSCode)
+.vscode/
+.idea/
+
+# 🍏 File di sistema
+.DS_Store
