@@ -64,11 +64,16 @@ def get_events():
     oggi = datetime.now()
 
     try:
-        with open("eventi.json", "r", encoding="utf-8") as f:
-            eventi = json.load(f)
-    except FileNotFoundError:
-        eventi = []
+        # Lettura eventi dal Google Sheet
+        SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
+        RANGE = "Foglio1!A1:G"
+        CHIAVE_JSON = "google-credentials.json"
+        eventi = leggi_eventi_ufficiali(SHEET_ID, RANGE, CHIAVE_JSON)
+    except Exception as e:
+        print("❌ Errore lettura da Google Sheets:", e)
+        return jsonify([]), 500
 
+    # Filtra per giorno e mese
     filtrati = []
     for e in eventi:
         if e["giorno"] == giorno and e["mese"] == mese:
