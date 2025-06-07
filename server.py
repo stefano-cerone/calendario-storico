@@ -64,24 +64,25 @@ def get_events():
     oggi = datetime.now()
 
     try:
-        # Lettura eventi dal Google Sheet
+        from google_utils import leggi_eventi_ufficiali
         SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
         RANGE = "Foglio1!A1:G"
         CHIAVE_JSON = "google-credentials.json"
         eventi = leggi_eventi_ufficiali(SHEET_ID, RANGE, CHIAVE_JSON)
+        print("📝 EVENTI LETTI:", eventi)
     except Exception as e:
         print("❌ Errore lettura da Google Sheets:", e)
         return jsonify([]), 500
 
-    # Filtra per giorno e mese
     filtrati = []
     for e in eventi:
         if e["giorno"] == giorno and e["mese"] == mese:
-            anni_trascorsi = oggi.year - e["anno"]
-            e["anni_fa"] = anni_trascorsi
+            e["anni_fa"] = oggi.year - e["anno"]
             filtrati.append(e)
 
+    print(f"🎯 Eventi filtrati per {giorno}/{mese}:", filtrati)
     return jsonify(filtrati)
+
 
 
 @app.route('/')
