@@ -54,8 +54,8 @@ def get_events():
 
 
 @app.route('/')
-def index():
-    return "<h1>Homepage del Calendario Storico</h1><p><a href='/admin/proposte'>Vai all'area admin</a></p>"
+def home_redirect():
+    return redirect('/oggi.html')
 
 @app.route('/proponi.html')
 def pagina_proponi():
