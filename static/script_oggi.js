@@ -11,7 +11,8 @@ window.onload = function () {
 
   risultatiDiv.innerHTML = `<h2>Eventi del ${giorno} ${nomiMesi[mese - 1]}</h2>`;
 
-  fetch(`http://127.0.0.1:5000/api/events?giorno=${giorno}&mese=${mese}`)
+ fetch(`/api/events?giorno=${giorno}&mese=${mese}`)
+
     .then(res => res.json())
     .then(data => {
       let eventi = data;
