@@ -1,0 +1,70 @@
+/* Mobile-only CSS (max-width: 768px) */
+body {
+  font-size: 16px;
+  padding: 10px;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 5vw, 2rem);
+  font-weight: 600;
+  text-align: center;
+}
+
+button {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+
+.evento {
+  padding: 15px;
+  margin: 10px auto;
+  font-size: 1rem;
+}
+
+.evento p {
+  font-size: 1rem;
+}
+
+.bottoni-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.bottoni-home button {
+  width: 90%;
+  font-size: 1.1rem;
+  padding: 10px;
+}
+
+.selezione-data select,
+.selezione-data button {
+  width: 90%;
+  margin: 5px 0;
+}
+
+.modal-content {
+  width: 95%;
+  padding: 15px;
+  max-height: 85vh;
+}
+
+.modal-close {
+  font-size: 1.4rem;
+}
+
+.whatsapp-btn {
+  font-size: 1rem;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.dettagli-evento img {
+  max-width: 100%;
+  height: auto;
+}
