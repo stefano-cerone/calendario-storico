@@ -102,4 +102,5 @@ def leggi_eventi_ufficiali(spreadsheet_id, range_dati, path_chiave_json):
             continue  # ignora righe incomplete
 
     eventi.sort(key=lambda e: (e["mese"], e["giorno"], e["anno"]))
+    eventi.reverse()
     return eventi
