@@ -7,10 +7,11 @@ body {
 }
 
 h1 {
+  font-size: clamp(1.8rem, 2.5rem, 3rem);
+  font-weight: 600;
   text-align: center;
-  color: #222;
-  font-size: 2rem;
 }
+
 
 .selezione-data {
   display: flex;
@@ -20,10 +21,10 @@ h1 {
 }
 
 select, button {
-  padding: 10px 15px;
-  font-size: 1rem;
+  padding: 12px 20px;
+  font-size: 1.1rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 12px;
   background-color: white;
   cursor: pointer;
 }
@@ -61,13 +62,14 @@ button:hover {
 
 .evento h3 {
   margin: 0 0 8px;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
+font-size: clamp(1.2rem, 1.5rem, 1.6rem);
+
   color: #1a1a1a;
 }
 
 .evento p {
   margin: 5px 0;
-  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  font-size: clamp(1rem, 1.2rem, 1.3rem);
   color: #333;
 }
 
@@ -247,7 +249,7 @@ a button {
 
   button {
   font-size: clamp(1rem, 4vw, 1.2rem);
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-radius: 12px;
 }
 
@@ -280,7 +282,7 @@ a button {
 
   .bottoni-home button {
     width: 90%;
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 10px;
   }
 
