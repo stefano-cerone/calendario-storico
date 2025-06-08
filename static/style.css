@@ -33,33 +33,42 @@ button:hover {
 }
 
 #risultati {
-  max-width: 800px;
+  width: 100%;
+  max-width: 700px;
   margin: 0 auto;
-  background-color: white;
   padding: 20px;
+  background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .evento {
-  border-bottom: 1px solid #eee;
-  padding: 15px 0;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  padding: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  transition: background 0.2s ease;
+  font-size: 1rem;
 }
 
 .evento:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
   background-color: #f9f9f9;
 }
 
 .evento h3 {
-  margin: 0 0 5px;
-  font-size: 1.2rem;
+  margin: 0 0 8px;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: #1a1a1a;
 }
 
 .evento p {
-  margin: 2px 0;
-  color: #444;
+  margin: 5px 0;
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  color: #333;
 }
 
 .dettagli-evento {
@@ -84,21 +93,12 @@ button:hover {
   text-decoration: underline;
 }
 
-
 .evento-img {
   width: 120px;
   height: auto;
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.evento h3 {
-  margin: 0 0 5px;
-}
-
-.evento p {
-  margin: 5px 0;
 }
 
 .evento a {
@@ -119,6 +119,7 @@ hr {
 a button {
   margin-top: 10px;
 }
+
 .filtro-anni {
   text-align: center;
   margin: 20px 0;
@@ -130,6 +131,7 @@ a button {
   width: 140px;
   font-size: 1rem;
 }
+
 .filtro-toggle {
   text-align: center;
   margin-bottom: 20px;
@@ -148,6 +150,7 @@ a button {
   width: 140px;
   font-size: 1rem;
 }
+
 .bottoni-home {
   text-align: center;
   margin: 20px 0;
@@ -172,6 +175,7 @@ a button {
 .bottoni-home button:hover {
   background-color: #005fa3;
 }
+
 .whatsapp-btn {
   display: inline-block;
   background-color: #25D366;
@@ -188,6 +192,7 @@ a button {
 .whatsapp-btn:hover {
   background-color: #1ebd5b;
 }
+
 .modal-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -218,6 +223,16 @@ a button {
   cursor: pointer;
 }
 
+/* Badge opzionale per l’anno */
+.badge-anno {
+  background: #0077cc;
+  color: white;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
 @media (max-width: 768px) {
   body {
     font-size: 16px;
@@ -236,7 +251,15 @@ a button {
   }
 
   .evento h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+  }
+
+  .evento p {
+    font-size: 1rem;
+  }
+
+  #risultati {
+    padding: 10px;
   }
 
   .bottoni-home {
@@ -274,5 +297,10 @@ a button {
     display: block;
     width: 100%;
     text-align: center;
+  }
+
+  .dettagli-evento img {
+    max-width: 100%;
+    height: auto;
   }
 }
