@@ -52,7 +52,7 @@ eventi.forEach(ev => {
 };
 
 function apriPopup(ev) {
-  const msg = encodeURIComponent(`Accadeva ${ev.anni_fa} anni fa:${ev.titolo} (${ev.anno})\n - Scopri di più su https://calendario-storico.onrender.com/}`);
+  const msg = encodeURIComponent(`Accadeva ${ev.anni_fa} anni fa:  ${ev.titolo} (${ev.anno})\nScopri di più su https://calendario-storico.onrender.com`);
   const whatsapp = `https://wa.me/?text=${msg}`;
   const contenuto = `
     <h2>${ev.titolo} (${ev.anno})</h2>
