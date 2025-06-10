@@ -53,10 +53,19 @@ fetch(`/api/events?giorno=${giorno}&mese=${mese}`)
 eventi.forEach(ev => {
   const eventoDiv = document.createElement("div");
   eventoDiv.className = "evento";
+if (ev.anno < 0) {
+  eventoDiv.innerHTML = `
+    <h3>${ev.titolo} (${Math.abs(ev.anno)} a.C.)</h3>
+    <p><strong>${ev.anni_fa} anni fa</strong></p>
+  `;
+} else {
   eventoDiv.innerHTML = `
     <h3>${ev.titolo} (${ev.anno})</h3>
     <p><strong>${ev.anni_fa} anni fa</strong></p>
   `;
+}
+
+
   eventoDiv.addEventListener("click", () => apriPopup(ev));
   risultatiDiv.appendChild(eventoDiv);
 });
